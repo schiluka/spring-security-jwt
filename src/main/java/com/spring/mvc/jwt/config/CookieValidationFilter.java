@@ -8,9 +8,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.json.JSONObject;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -21,7 +20,7 @@ import com.spring.mvc.jwt.service.MyAppUserDetailsService;
 @Component
 public class CookieValidationFilter extends OncePerRequestFilter {
 	
-	private final Log log = LogFactory.getLog(this.getClass());
+	private static final Logger log = LogManager.getLogger(CookieValidationFilter.class);
 	
 	@Autowired
 	private MyAppUserDetailsService myAppUserDetailsService;

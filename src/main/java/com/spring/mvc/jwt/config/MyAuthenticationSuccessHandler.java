@@ -7,8 +7,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -28,7 +28,7 @@ import com.spring.mvc.jwt.service.JwtUtils;
 @Component
 public class MyAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
-	private final Log log = LogFactory.getLog(this.getClass());
+	private static final Logger log = LogManager.getLogger(MyAuthenticationSuccessHandler.class);
 	
 	//@Override
 	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
