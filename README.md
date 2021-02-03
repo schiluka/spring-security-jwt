@@ -1,4 +1,16 @@
-# Sample app with spring security with JWT token authentication
+# Sample app with Spring Security and JWT token authentication
 
-#### Login with http://localhost:8080/app/login 
-#### user:user1, password:{bcrypt}user1
+### Prerequisite
+- Java 11
+- Gradle 6
+
+### Build
+gradle clean build
+
+### Run
+java -jar build/libs/spring-security-jwt-0.1.jar --spring.config.location=./application.properties
+
+#### Login 
+http://localhost:8080/app/login 
+
+user:user1, password:{bcrypt}user1

@@ -1,16 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
 <head>
-      <title>Spring Boot MVC Security with JWT</title>
-      <link rel="stylesheet" href="/css/styles.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Spring MVC JWT - Home</title>
+
+<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+	rel="stylesheet">
+
 </head>
-<body>
-   <h3>Spring Boot MVC Security with JWT</h3>
-   <div>
-	    Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
-	    <form th:action="@{/app-logout}" method="POST">
-	         <input type="submit" value="Logout"/>
-	    </form>
-   </div> <br/>
+
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+	<nav class="bg-gray-800 p-2 mt-0 w-full">
+		<div class="container mx-auto flex-wrap items-center">
+			<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+				<a
+					class="text-white no-underline hover:text-white hover:no-underline"
+					href="/">My Spring MVC JWT App</a>
+			</div>
+			<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+				<ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+				  <li class="mr-3">
+						<form th:action="@{/app-logout}" method="post">
+        					<button class="sm-blue text-white font-bold py-2 px-4 rounded"
+        						type="submit">Logout</button>
+    					</form>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div
+		class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+		<div
+			class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6">
+			<h1 class="font-bold text-3xl my-4">My Super App</h1>
+			<h1 class="font-bold text-3xl my-4"
+				th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]</h1>
+			<p class="leading-normal mb-4">You are awesome!</p>
+		</div>
+
+	</div>
+
 </body>
-</html>   
+</html>

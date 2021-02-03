@@ -1,18 +1,53 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title> Spring Boot MVC Security</title>
-        <link rel="stylesheet" href="/css/styles.css"/>
-    </head>
-    <body>
-        <h3> Spring Boot MVC Security with JWT </h3> 
-        <p th:if="${param.error}" class="error">
-            Bad Credentials  
-        </p>
-        <form th:action="@{/app-login}" method="POST">
-            User Name : <input type="text" name="username"/> <br/><br/>
-            Password: <input type="password" name="password"/> <br/><br/>
-            <input type="submit" value="Login"/>
-        </form>
-    </body>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
+	rel="stylesheet">	
+<title>Spring MVC JWT - Login</title>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+	
+	<nav class="bg-gray-800 p-2 mt-0 w-full">
+		<div class="container mx-auto flex-wrap items-center">
+			<div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
+				<a class="text-white no-underline hover:text-white hover:no-underline"
+					href="/">My Spring MVC JWT App</a>
+			</div>
+		</div>
+	</nav>
+	
+<!-- 	<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col"> -->
+	<div
+		class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
+	
+		<div th:if="${param.error}">Invalid username and password.</div><br/>
+		<div th:if="${param.logout}">You have been logged out.</div><br/>
+		
+		<form th:action="@{/app-login}" method="POST">
+			<div class="mb-4">
+				<label class="block text-grey-darker text-sm font-bold mb-2"
+					for="username"> Username </label> 
+				<input
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
+					id="username" name="username" type="text" placeholder="Username">
+			</div>
+			<div class="mb-6">
+				<label class="block text-grey-darker text-sm font-bold mb-2"
+					for="password"> Password </label> 
+				<input
+					class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3"
+					id="password" name="password" type="password" placeholder="*******">
+			</div>
+			
+			<div class="flex items-center justify-between">
+				<button class="bg-blue-800 hover:bg-blue-dark text-white font-bold py-2 px-4 rounded"
+					type="submit">Login</button>
+			</div> 
+		</form>
+	</div>
+</body>
 </html>
