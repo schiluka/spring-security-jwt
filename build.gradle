@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.4.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'war'
+	//id 'war'
 }
 
 group = 'com.spring.mvc.jwt'
@@ -15,19 +15,17 @@ repositories {
 }
 
 dependencies {
-	implementation('org.springframework.boot:spring-boot-starter-security') {
-		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-	}
+	implementation('org.springframework.boot:spring-boot-starter-security')
 	implementation('org.springframework.boot:spring-boot-starter-web') 
-    implementation('org.springframework.boot:spring-boot-starter-log4j2')
 	implementation('commons-beanutils:commons-beanutils:1.9.4') 
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
-	//implementation 'java.xml.bind:jaxb-api:2.1.0'
-	//javax/xml/jaxb-api/2.1/
 	implementation 'jaxb:jsr173_api:1.0'
 	implementation 'org.json:json:20201115'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	//JDK 11 workaround for JAXB
+	implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+    implementation "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+	//providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
 }
